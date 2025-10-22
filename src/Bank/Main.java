@@ -14,7 +14,7 @@ public class Main {
             int number = getInt(scan);
             scan.nextLine();
             switch (number){
-
+                //созданиие счёта
                 case 1:
                     if(myBank == null) {
                         try {
@@ -36,7 +36,7 @@ public class Main {
                         break;
                     }
                     break;
-
+                //внесение денег
                 case 2:
                     if(myBank == null){
                         System.out.println("Ошибка: сначала создайте банковский счет");
@@ -51,7 +51,7 @@ public class Main {
                         myBank.DepositMoney(amount, date);
                     }
                     break;
-
+                //снятие денег
                 case 3:
                     if(myBank == null){
                         System.out.println("Ошибка: сначала создайте банковский счет");
@@ -67,7 +67,7 @@ public class Main {
                         myBank.WithdrawMoney(amount1, date1);
                     }
                     break;
-
+                //посмотреть баланс
                 case 4:
                     if(myBank == null){
                         System.out.println("Ошибка: сначала создайте банковский счет");
@@ -76,7 +76,7 @@ public class Main {
                         myBank.getBalance();
                     }
                     break;
-
+                //вывод списка транзакций
                 case 5:
                     if(myBank == null){
                         System.out.println("Ошибка: сначала создайте банковский счет");
@@ -86,7 +86,7 @@ public class Main {
                         myBank.getListTransaction();
                     }
                     break;
-
+                //перевод денег
                 case 6:
                     if(myBank == null){
                         System.out.println("Ошибка: сначала создайте банковский счет");
@@ -106,7 +106,7 @@ public class Main {
                         myBank.TransferMoney(amount2, date2, recipient2, message2);
                     }
                     break;
-
+                //поиск по атрибутам
                 case 7:
                     if(myBank == null){
                         System.out.println("Ошибка: сначала создайте банковский счет");
@@ -120,14 +120,14 @@ public class Main {
                         int num = getInt(scan);
                         scan.nextLine();
                         switch (num) {
-
+                            //поиск по дате
                             case 1:
                                 System.out.print("Введите дату: ");
                                 String findDate = validDate(scan);
                                 System.out.print("Список найденных транзакций по дате " + findDate);
                                 myBank.findDateTransaction(findDate);
                                 break;
-
+                            //поиск по сумме
                             case 2:
                                 System.out.print("Введите минимальную сумму: ");
                                 float findMinAmount = getFloat(scan);
@@ -136,14 +136,14 @@ public class Main {
                                 System.out.print("Список найденных транзакций по сумме от " + findMinAmount + " до " + findMaxAmount);
                                 myBank.findAmountTransaction(findMinAmount, findMaxAmount);
                                 break;
-
+                            //поиск по получателю
                             case 3:
                                 System.out.print("Введите получателя: ");
                                 String findRecipient = getString(scan);
                                 System.out.print("Список найденных транзакций по получателю " + findRecipient);
                                 myBank.findRecipientTransaction(findRecipient);
                                 break;
-
+                            //поиск по сообщению
                             case 4:
                                 System.out.print("Введите сообщение: ");
                                 String findMessage = getString(scan);
@@ -165,7 +165,7 @@ public class Main {
             }
         }
     }
-
+    //вывод меню
     public static void printMenu(){
 
         System.out.println("\nВведите цифру 1, чтобы создать счет");
@@ -178,7 +178,7 @@ public class Main {
         System.out.println("Введите цифру 0, чтобы выйти из меню");
 
     }
-
+    //проверка ввода числа
     private static int getInt(Scanner scan){
         while(true) {
             try {
@@ -189,7 +189,7 @@ public class Main {
             }
         }
     }
-
+    //проверка ввода суммы
     private static float getFloat(Scanner scan){
         while(true) {
             try {
@@ -205,7 +205,7 @@ public class Main {
             }
         }
     }
-
+    //проверка ввода строк
     private static String getString(Scanner scan){
         while(true){
             try{
@@ -221,7 +221,7 @@ public class Main {
             }
         }
     }
-
+    //проверка ввода даты
     private static String validDate(Scanner scan){
         while(true){
             try{
